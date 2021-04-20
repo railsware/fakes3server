@@ -2,6 +2,7 @@
 # Make sure to check the documentation at http://goreleaser.com
 builds:
   - id: "fakes3server-build"
+    dir: vendor/github.com/johannesboyne/gofakes3/cmd/gofakes3
     binary: fakes3server
     env:
       - CGO_ENABLED=0

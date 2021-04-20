@@ -28,10 +28,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
-      - name: Tests
+      - name: Copy dependencies into app folder
         run: |
-          go mod tidy
-          go test -v ./...
+          go mod vendor
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
@@ -41,6 +40,3 @@ jobs:
           args: release --rm-dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-
